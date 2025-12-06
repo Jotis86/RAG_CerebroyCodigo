@@ -1,10 +1,10 @@
 <div align="center">
 
-![Banner Cerebro y Código](./assets/banner.png)
+![Brain and Code Banner](./assets/banner.png)
 
-# 🧠 Sistema RAG - Cerebro y Código
+# 🧠 RAG System - Brain and Code
 
-### Sistema de RAG para el repositorio educativo [Cerebro y Código](https://github.com/Jotis86/CerebroyCodigo)
+### RAG System for the educational repository [Brain and Code](https://github.com/Jotis86/CerebroyCodigo)
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
@@ -14,7 +14,7 @@
 
 ---
 
-### 📊 Estadísticas del Proyecto
+### 📊 Project Statistics
 
 ![Lines of Code](https://img.shields.io/badge/Lines%20of%20Code-1500+-blueviolet)
 ![Components](https://img.shields.io/badge/Components-7-success)
@@ -26,462 +26,554 @@
 
 ---
 
-## 📖 Tabla de Contenidos
+## 📖 Table of Contents
 
-- [Características](#-características)
-- [Inicio Rápido](#-inicio-rápido)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Arquitectura RAG](#-arquitectura-rag)
-- [Uso con Docker](#-uso-con-docker)
-- [Configuración](#-configuración)
-- [Ejemplos de Uso](#-ejemplos-de-uso)
-- [Tecnologías](#-tecnologías)
-- [Solución de Problemas](#-solución-de-problemas)
-- [Contribuciones](#-contribuciones)
-- [Licencia](#-licencia)
-
----
-
-## ✨ Características
-
-- 🤖 **Sistema RAG Completo** - Recuperación de información contextual con generación aumentada
-- 🔍 **Búsqueda Semántica** - Encuentra información por significado, no por palabras exactas
-- 🌍 **Embeddings Multilingües** - Procesamiento de texto en español usando Cohere
-- 📊 **Base de Datos Vectorial** - ChromaDB para almacenamiento y búsqueda eficiente
-- 💬 **Interfaz Conversacional** - Chat intuitivo con historial persistente
-- 📚 **Transparencia** - Visualización de fuentes utilizadas en cada respuesta
-- 💡 **Preguntas Sugeridas** - Guía al usuario con ejemplos de consultas
-- 🐳 **Dockerizado** - Fácil despliegue en contenedores
-- ⚙️ **Configurable** - Ajusta modelos, parámetros y comportamiento
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [RAG Architecture](#-rag-architecture)
+- [Docker Usage](#-docker-usage)
+- [Configuration](#-configuration)
+- [Usage Examples](#-usage-examples)
+- [Technologies](#-technologies)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
-## 🚀 Inicio Rápido
+## ✨ Features
 
-### Opción A: Instalación Local (Desarrollo)
+- 🤖 **Complete RAG System** - Contextual information retrieval with augmented generation
+- 🔍 **Semantic Search** - Finds information by meaning, not exact words
+- 🌍 **Multilingual Embeddings** - Spanish text processing using Cohere
+- 📊 **Vector Database** - ChromaDB for efficient storage and search
+- 💬 **Conversational Interface** - Intuitive chat with persistent history
+- 📚 **Full Transparency** - Visualization of sources used in each response
+- 💡 **Suggested Questions** - Guides users with query examples
+- 🐳 **Dockerized** - Easy container deployment
+- ⚙️ **Highly Configurable** - Adjust models, parameters, and behavior
 
-#### 1️⃣ Clonar y preparar entorno
+---
+
+## 🚀 Quick Start
+
+### Option A: Local Installation (Development)
+
+#### 1️⃣ Clone and prepare environment
 
 ```bash
-git clone <tu-repo>
+git clone <your-repo>
 cd RAG_CerebroyCodigo
 
-# Crear entorno virtual
+# Create virtual environment
 python3 -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-#### 2️⃣ Configurar API Key de Cohere
+#### 2️⃣ Configure Cohere API Key
 
-1. Obtén tu API key **gratuita** en [Cohere Dashboard](https://dashboard.cohere.com/api-keys)
-2. Crea el archivo de configuración:
+1. Get your **FREE** API key at [Cohere Dashboard](https://dashboard.cohere.com/api-keys)
+2. Create configuration file:
 
 ```bash
 cp .env.example .env
 ```
 
-3. Edita `.env` y añade tu API key:
+3. Edit `.env` and add your API key:
 
 ```bash
-COHERE_API_KEY=tu-api-key-aqui
+COHERE_API_KEY=your-api-key-here
 ```
 
-#### 3️⃣ Ejecutar la aplicación
+#### 3️⃣ Run the application
 
 ```bash
-# Opción 1: Comando directo
+# Option 1: Direct command
 python -m streamlit run src/app.py
 
-# Opción 2: Script de inicio
+# Option 2: Startup script
 ./run.sh        # Linux/Mac
 run.bat         # Windows
 ```
 
-**¡Listo!** Abre tu navegador en → http://localhost:8501
+**Ready!** Open your browser at → http://localhost:8501
 
 ---
 
-### Opción B: Con Docker 🐳 (Producción)
+### Option B: With Docker 🐳 (Production)
 
-#### Método 1: Docker Compose (Recomendado)
+#### Method 1: Docker Compose (Recommended)
 
 ```bash
-# 1. Configura tu API Key
-echo "COHERE_API_KEY=tu-api-key-aqui" > .env
+# 1. Configure your API Key
+echo "COHERE_API_KEY=your-api-key-here" > .env
 
-# 2. Construye y ejecuta
+# 2. Build and run
 docker-compose up --build -d
 
-# 3. Accede a la aplicación
+# 3. Access the application
 # http://localhost:8501
 ```
 
-#### Método 2: Script Automático
+#### Method 2: Automatic Script
 
 ```bash
 ./docker-run.sh
 ```
 
-#### Comandos Útiles de Docker
+#### Useful Docker Commands
 
 ```bash
-# Ver logs en tiempo real
+# View logs in real-time
 docker-compose logs -f
 
-# Detener la aplicación
+# Stop the application
 docker-compose down
 
-# Reiniciar
+# Restart
 docker-compose restart
 
-# Ver estado
+# Check status
 docker-compose ps
 ```
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 RAG_CerebroyCodigo/
 │
-├── src/                        # 💻 Código fuente
-│   ├── app.py                 # Aplicación principal Streamlit
+├── src/                        # 💻 Source code
+│   ├── app.py                 # Main Streamlit application
 │   │
-│   ├── components/            # Componentes de UI
-│   │   ├── chat_interface.py # Interfaz de chat
-│   │   └── sidebar.py        # Barra lateral
+│   ├── components/            # UI components
+│   │   ├── chat_interface.py # Chat interface
+│   │   └── sidebar.py        # Sidebar
 │   │
-│   ├── services/              # Lógica de negocio
-│   │   ├── rag_service.py    # ⭐ Sistema RAG completo
-│   │   └── cohere_client.py  # Cliente API Cohere
+│   ├── services/              # Business logic
+│   │   ├── rag_service.py    # ⭐ Complete RAG system
+│   │   └── cohere_client.py  # Cohere API client
 │   │
-│   └── utils/                 # Utilidades
-│       ├── config.py          # Configuración centralizada
-│       └── helpers.py         # Funciones auxiliares
+│   └── utils/                 # Utilities
+│       ├── config.py          # Centralized configuration
+│       └── helpers.py         # Helper functions
 │
-├── data/                       # 📊 Datos fuente
-│   └── README.md              # Contenido del repositorio Cerebro y Código
+├── data/                       # 📊 Source data
+│   └── README.md              # Brain and Code repository content
 │
-├── tests/                      # 🧪 Tests unitarios
+├── assets/                     # 🎨 Assets
+│   └── banner.png             # Project banner
+│
+├── tests/                      # 🧪 Unit tests
 │   └── test_cohere_client.py
 │
-├── .env.example               # Plantilla de configuración
-├── .gitignore                 # Archivos ignorados por Git
-├── .dockerignore              # Archivos ignorados por Docker
+├── .env.example               # Configuration template
+├── .gitignore                 # Files ignored by Git
+├── .dockerignore              # Files ignored by Docker
 │
-├── requirements.txt           # Dependencias Python
-├── Dockerfile                 # Imagen Docker
-├── docker-compose.yml         # Orquestación Docker
+├── requirements.txt           # Python dependencies
+├── Dockerfile                 # Docker image
+├── docker-compose.yml         # Docker orchestration
 │
-├── run.sh                     # Script inicio Unix
-├── run.bat                    # Script inicio Windows
-├── docker-run.sh              # Script Docker
+├── run.sh                     # Unix startup script
+├── run.bat                    # Windows startup script
+├── docker-run.sh              # Docker script
 │
-├── INSTALAR.sh                # Instalador automático
-└── README.md                  # Este archivo
+├── INSTALAR.sh                # Auto-installer
+└── README.md                  # This file
 ```
 
 ---
 
-## 🏗️ Arquitectura RAG
+## 🏗️ RAG Architecture
 
-### Flujo de Funcionamiento
+### Operation Flow
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. USUARIO HACE UNA PREGUNTA                                 │
-│    "¿Qué recursos hay para aprender Python?"                 │
+│ 1. USER ASKS A QUESTION                                      │
+│    "What resources are available to learn Python?"           │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 2. GENERACIÓN DE EMBEDDING                                   │
-│    Cohere convierte la pregunta en vector [0.23, -0.45...]  │
+│ 2. EMBEDDING GENERATION                                      │
+│    Cohere converts question to vector [0.23, -0.45...]      │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 3. BÚSQUEDA EN CHROMADB                                      │
-│    Encuentra los 4 chunks más similares semánticamente       │
+│ 3. SEARCH IN CHROMADB                                        │
+│    Finds the 4 most semantically similar chunks              │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 4. RECUPERACIÓN DE CONTEXTO                                  │
-│    - Chunk 1: "Python es un lenguaje..."                     │
-│    - Chunk 2: "Recursos para Python..."                      │
+│ 4. CONTEXT RETRIEVAL                                         │
+│    - Chunk 1: "Python is a language..."                      │
+│    - Chunk 2: "Resources for Python..."                      │
 │    - Chunk 3: "Roadmap to Python..."                         │
 │    - Chunk 4: "Exercism, Real Python..."                     │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 5. CONSTRUCCIÓN DEL PROMPT                                   │
-│    System prompt + Contexto + Pregunta del usuario           │
+│ 5. PROMPT CONSTRUCTION                                       │
+│    System prompt + Context + User question                   │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 6. GENERACIÓN CON COHERE LLM                                 │
-│    Modelo: command-r7b-12-2024                               │
+│ 6. GENERATION WITH COHERE LLM                                │
+│    Model: command-r7b-12-2024                                │
 └────────────────────────┬────────────────────────────────────┘
                          │
                          ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 7. RESPUESTA AL USUARIO                                      │
-│    Respuesta generada + Fuentes utilizadas                   │
+│ 7. RESPONSE TO USER                                          │
+│    Generated answer + Sources used                           │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-### Componentes Técnicos
+### Technical Components
 
-| Componente | Tecnología | Función |
-|------------|------------|---------|
-| **Interfaz** | Streamlit | UI conversacional |
-| **LLM** | Cohere (command-r7b-12-2024) | Generación de respuestas |
-| **Embeddings** | Cohere (embed-multilingual-v3.0) | Vectorización de texto |
-| **Vector DB** | ChromaDB | Almacenamiento y búsqueda |
-| **Orquestación** | LangChain | Pipeline RAG |
+| Component | Technology | Function |
+|-----------|------------|----------|
+| **Interface** | Streamlit | Conversational UI |
+| **LLM** | Cohere (command-r7b-12-2024) | Response generation |
+| **Embeddings** | Cohere (embed-multilingual-v3.0) | Text vectorization |
+| **Vector DB** | ChromaDB | Storage and search |
+| **Orchestration** | LangChain | RAG pipeline |
 
-### Procesamiento de Documentos
+### Document Processing
 
-1. **Carga**: Lee `data/README.md` automáticamente
-2. **Chunking**: Divide en fragmentos de 1000 tokens con 200 de overlap
-3. **Embedding**: Genera vectores para cada chunk
-4. **Indexación**: Almacena en ChromaDB
-5. **Listo**: El sistema está preparado para consultas
-
----
-
-## 🐳 Uso con Docker
-
-### Características del Contenedor
-
-- ✅ **Imagen ligera** - Python 3.12 slim
-- ✅ **Healthcheck** - Monitoreo automático de salud
-- ✅ **Auto-restart** - Reinicio automático ante fallos
-- ✅ **Persistencia** - Volumen para ChromaDB
-- ✅ **Hot-reload** - Datos actualizables sin reconstruir
-- ✅ **Seguro** - API keys como variables de entorno
-
+1. **Loading**: Reads `data/README.md` automatically
+2. **Chunking**: Splits into 1000-token fragments with 200 overlap
+3. **Embedding**: Generates vectors for each chunk
+4. **Indexing**: Stores in ChromaDB
+5. **Ready**: System prepared for queries
 
 ---
 
-## ⚙️ Configuración
+## 🐳 Docker Usage
 
+### Container Features
 
-### Variables de Entorno
+- ✅ **Lightweight image** - Python 3.12 slim
+- ✅ **Healthcheck** - Automatic health monitoring
+- ✅ **Auto-restart** - Automatic restart on failure
+- ✅ **Persistence** - Volume for ChromaDB
+- ✅ **Hot-reload** - Updatable data without rebuild
+- ✅ **Secure** - API keys as environment variables
 
-Crea un archivo `.env` en la raíz:
+### Build and Run
 
 ```bash
-# API Key de Cohere (obligatoria)
-COHERE_API_KEY=tu-api-key-aqui
+# With Docker Compose
+docker-compose up --build -d
+
+# Manual Docker
+docker build -t rag-cerebro-codigo .
+docker run -d -p 8501:8501 \
+  -e COHERE_API_KEY=your-key \
+  rag-cerebro-codigo
 ```
 
-### Modelos Disponibles de Cohere
+### Docker Management
 
-| Modelo | Parámetros | Velocidad | Uso |
-|--------|------------|-----------|-----|
-| `command-r7b-12-2024` | 7B | ⚡⚡⚡ Muy rápido | Recomendado para RAG |
-| `command-r` | ~35B | ⚡⚡ Rápido | Balanceado |
-| `command` | Grande | ⚡ Normal | Tareas complejas |
-
----
-
-## 💡 Ejemplos de Uso
-
-### Preguntas sobre Recursos
-
-```
-✅ "¿Qué recursos hay para aprender Python?"
-✅ "¿Dónde puedo encontrar tutoriales de Machine Learning?"
-✅ "Dame recursos sobre bases de datos"
-✅ "¿Qué herramientas recomiendas para análisis de datos?"
-✅ "¿Dónde puedo practicar SQL en línea?"
-✅ "¿Qué plataformas recomiendas para aprender IA?"
-✅ "Dame enlaces para desplegar aplicaciones"
-```
-
----
-
-## 🛠️ Tecnologías
-
-### Stack Principal
-
-| Tecnología | Versión | Uso |
-|------------|---------|-----|
-| **Python** | 3.12+ | Lenguaje base |
-| **Streamlit** | 1.28+ | Framework web |
-| **Cohere** | 5.5+ | LLM y embeddings |
-| **LangChain** | 0.1+ | Orquestación RAG |
-| **ChromaDB** | 0.4+ | Base de datos vectorial |
-| **Docker** | 20+ | Contenedorización |
-
-### Dependencias Principales
-
-```txt
-streamlit>=1.28.0
-cohere>=5.5.0
-langchain>=0.1.0
-langchain-community>=0.0.10
-langchain-cohere>=0.1.0
-chromadb>=0.4.18
-tiktoken>=0.5.1
-python-dotenv>=1.0.0
-```
-
-### Enlaces Útiles
-
-- 📦 [Repositorio Cerebro y Código](https://github.com/Jotis86/CerebroyCodigo)
-- 🤖 [Documentación Cohere](https://docs.cohere.ai/)
-- 🎨 [Documentación Streamlit](https://docs.streamlit.io/)
-- 🔗 [Documentación LangChain](https://python.langchain.com/)
-- 📊 [Documentación ChromaDB](https://docs.trychroma.com/)
-
----
-
-## 🐛 Solución de Problemas
-
-### Error: "COHERE_API_KEY no está configurada"
-
-**Causa:** No existe el archivo `.env` o está mal configurado.
-
-**Solución:**
 ```bash
-# Verifica que existe
-ls -la .env
-
-# Si no existe, créalo
-cp .env.example .env
-
-# Edita y añade tu API key
-nano .env  # o usa tu editor favorito
-
-# Contenido del .env:
-COHERE_API_KEY=tu-api-key-real-aqui
-```
-
-Obtén tu API key en: https://dashboard.cohere.com/api-keys
-
----
-
-### Error: "README.md no encontrado"
-
-**Causa:** El archivo de datos no está en la ruta esperada.
-
-**Solución:**
-```bash
-# Verifica que existe
-ls -la data/README.md
-
-# Si está en otro lugar, ajusta la ruta en config.py
-```
-
----
-
-### Error al instalar dependencias
-
-**Causa:** Problemas con pip o dependencias del sistema.
-
-**Solución:**
-```bash
-# Actualiza pip
-pip install --upgrade pip
-
-# Instala de nuevo
-pip install -r requirements.txt
-
-# Si falla ChromaDB (requiere compilación)
-# En macOS:
-xcode-select --install
-
-# En Ubuntu/Debian:
-sudo apt-get install build-essential
-
-# Luego reinstala
-pip install chromadb --no-cache-dir
-```
-
----
-
-### Problemas con Docker
-
-**Solución:**
-```bash
-# Ver logs detallados
+# View logs
 docker-compose logs -f
 
-# Reconstruir desde cero
-docker-compose down -v
-docker-compose up --build
+# Stop
+docker-compose down
 
-# Limpiar todo Docker
+# Restart
+docker-compose restart
+
+# Full cleanup
+docker-compose down -v
 docker system prune -a
 ```
 
 ---
 
-## 🤝 Contribuciones
+## ⚙️ Configuration
 
-Las contribuciones son bienvenidas! Sigue estos pasos:
+### Environment Variables
 
-1. **Fork** el proyecto
-2. **Crea una rama** para tu feature:
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. **Commit** tus cambios:
-   ```bash
-   git commit -m 'Add: descripción del cambio'
-   ```
-4. **Push** a la rama:
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. **Abre un Pull Request**
+Create a `.env` file in the root:
 
-### Guías de Contribución
+```bash
+# Cohere API Key (required)
+COHERE_API_KEY=your-api-key-here
+```
 
-- Sigue el estilo de código existente
-- Añade tests para nuevas funcionalidades
-- Actualiza la documentación si es necesario
-- Asegúrate de que todos los tests pasen
 
+### Available Cohere Models
+
+| Model | Parameters | Speed | Use Case |
+|-------|------------|-------|----------|
+| `command-r7b-12-2024` | 7B | ⚡⚡⚡ Very fast | Recommended for RAG |
+| `command-r` | ~35B | ⚡⚡ Fast | Balanced |
+| `command` | Large | ⚡ Normal | Complex tasks |
 
 ---
 
-## 📞 Contacto y Soporte
+## 💡 Usage Examples
 
-### Autor
+### Questions about Resources
+
+```
+✅ "What resources are available to learn Python?"
+✅ "Where can I find Machine Learning tutorials?"
+✅ "Give me resources about databases"
+✅ "What tools do you recommend for data analysis?"
+✅ "Where can I practice SQL online?"
+✅ "What platforms do you recommend for learning AI?"
+```
+
+---
+
+## 🛠️ Technologies
+
+### Main Stack
+
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| **Python** | 3.12+ | Base language |
+| **Streamlit** | 1.28+ | Web framework |
+| **Cohere** | 5.5+ | LLM and embeddings |
+| **LangChain** | 0.1+ | RAG orchestration |
+| **ChromaDB** | 0.4+ | Vector database |
+| **Docker** | 20+ | Containerization |
+
+
+### Useful Links
+
+- 📦 [Brain and Code Repository](https://github.com/Jotis86/CerebroyCodigo)
+- 🤖 [Cohere Documentation](https://docs.cohere.ai/)
+- 🎨 [Streamlit Documentation](https://docs.streamlit.io/)
+- 🔗 [LangChain Documentation](https://python.langchain.com/)
+- 📊 [ChromaDB Documentation](https://docs.trychroma.com/)
+
+---
+
+## 🐛 Troubleshooting
+
+### Error: "COHERE_API_KEY not configured"
+
+**Cause:** The `.env` file doesn't exist or is misconfigured.
+
+**Solution:**
+```bash
+# Check if it exists
+ls -la .env
+
+# If it doesn't exist, create it
+cp .env.example .env
+
+# Edit and add your API key
+nano .env  # or use your preferred editor
+
+# .env content:
+COHERE_API_KEY=your-real-api-key-here
+```
+
+Get your API key at: https://dashboard.cohere.com/api-keys
+
+---
+
+### Error: "README.md not found"
+
+**Cause:** The data file is not in the expected path.
+
+**Solution:**
+```bash
+# Verify it exists
+ls -la data/README.md
+
+# If it's elsewhere, adjust the path in config.py
+```
+
+---
+
+### Error installing dependencies
+
+**Cause:** Issues with pip or system dependencies.
+
+**Solution:**
+```bash
+# Update pip
+pip install --upgrade pip
+
+# Install again
+pip install -r requirements.txt
+
+# If ChromaDB fails (requires compilation)
+# On macOS:
+xcode-select --install
+
+# On Ubuntu/Debian:
+sudo apt-get install build-essential
+
+# Then reinstall
+pip install chromadb --no-cache-dir
+```
+
+---
+
+### Changes not reflected in the app
+
+**Cause:** Streamlit or Python cache.
+
+**Solution:**
+```bash
+# Stop the app (Ctrl+C)
+
+# Clear Streamlit cache
+streamlit cache clear
+
+# Optional: Clear compiled files
+find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null
+
+# Restart the app
+python -m streamlit run src/app.py
+
+# In browser: Ctrl+Shift+R (force reload)
+```
+
+---
+
+### Docker issues
+
+**Solution:**
+```bash
+# View detailed logs
+docker-compose logs -f
+
+# Rebuild from scratch
+docker-compose down -v
+docker-compose up --build
+
+# Clean all Docker
+docker system prune -a
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Follow these steps:
+
+1. **Fork** the project
+2. **Create a branch** for your feature:
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+3. **Commit** your changes:
+   ```bash
+   git commit -m 'Add: feature description'
+   ```
+4. **Push** to the branch:
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+5. **Open a Pull Request**
+
+### Contribution Guidelines
+
+- Follow the existing code style
+- Add tests for new features
+- Update documentation if necessary
+- Ensure all tests pass
+
+---
+
+## 📄 License
+
+This project is under the MIT License. See the `LICENSE` file for more details.
+
+---
+
+## 📞 Contact and Support
+
+### Author
 
 **Juan Durán**
 - 📧 **Email:** jotaduranbon@gmail.com
 - 📸 **Instagram:** [@cerebroycodigo](https://instagram.com/cerebroycodigo)
 - 🐙 **GitHub:** [@Jotis86](https://github.com/Jotis86)
 
-### Proyecto Original
+### Original Project
 
-Este es un sistema RAG desarrollado para el repositorio educativo:
-- 📦 [Cerebro y Código](https://github.com/Jotis86/CerebroyCodigo)
-
+This is a RAG system developed for the educational repository:
+- 📦 [Brain and Code](https://github.com/Jotis86/CerebroyCodigo)
 
 ---
 
-**💡 Desarrollado con ❤️ por Jotis**
+## 🎯 How RAG Works
 
-*Sistema RAG profesional para exploración de conocimiento con IA* 
+### Step 1: Indexing (Once at startup)
+```
+README.md (38 chunks)
+       ↓
+[Chunk 1] "Python is a language..."
+[Chunk 2] "Machine Learning allows..."
+[Chunk 3] "SQL is the language..."
+       ↓
+Cohere Embeddings
+       ↓
+[Vector 1] [0.23, -0.45, 0.67, ...]
+[Vector 2] [0.12, 0.89, -0.34, ...]
+[Vector 3] [-0.56, 0.23, 0.78, ...]
+       ↓
+ChromaDB (Vector database)
+```
+
+### Step 2: Query (Each question)
+```
+Your question: "How to learn Python?"
+       ↓
+Cohere Embeddings
+       ↓
+Question vector: [0.25, -0.43, 0.65, ...]
+       ↓
+ChromaDB: Similarity search
+       ↓
+Top 4 most similar chunks:
+1. "Python is a language..." (similarity: 0.92)
+2. "Resources for Python..." (similarity: 0.88)
+3. "Roadmap to Python..." (similarity: 0.85)
+4. "Exercism, Real Python..." (similarity: 0.82)
+       ↓
+Cohere LLM receives:
+- Your question
+- The 4 context chunks
+       ↓
+Generates coherent and contextualized response
+       ↓
+Shows response + sources
+```
+
+---
+
+**💡 Developed with ❤️ by Jotis**
+
+*Professional RAG system for knowledge exploration with AI*
 
 ---
 
 <div align="center">
 
-**Si te ha sido útil, no olvides darle una ⭐**
+**If you found this useful, don't forget to give it a ⭐**
 
-[⬆ Volver arriba](#-sistema-rag---cerebro-y-código)
+[⬆ Back to top](#-rag-system---brain-and-code)
 
 </div>
