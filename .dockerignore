@@ -1,0 +1,75 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+tests/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# ChromaDB local
+chroma_db/
+
+# Documentación (no necesaria en el contenedor)
+docs/
+*.md
+!data/README.md
+
+# Scripts de desarrollo
+INSTALAR.sh
+run.sh
+run.bat
+ESTRUCTURA.md
+SOLUCION_DEPENDENCIAS.md
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
