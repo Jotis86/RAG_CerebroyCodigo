@@ -4,7 +4,7 @@
 
 # 🧠 Sistema RAG - Cerebro y Código
 
-### Sistema de Retrieval-Augmented Generation para el repositorio educativo [Cerebro y Código](https://github.com/Jotis86/CerebroyCodigo)
+### Sistema de RAG para el repositorio educativo [Cerebro y Código](https://github.com/Jotis86/CerebroyCodigo)
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
