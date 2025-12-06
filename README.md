@@ -49,10 +49,10 @@
 - 🌍 **Embeddings Multilingües** - Procesamiento de texto en español usando Cohere
 - 📊 **Base de Datos Vectorial** - ChromaDB para almacenamiento y búsqueda eficiente
 - 💬 **Interfaz Conversacional** - Chat intuitivo con historial persistente
-- 📚 **Transparencia Total** - Visualización de fuentes utilizadas en cada respuesta
+- 📚 **Transparencia** - Visualización de fuentes utilizadas en cada respuesta
 - 💡 **Preguntas Sugeridas** - Guía al usuario con ejemplos de consultas
 - 🐳 **Dockerizado** - Fácil despliegue en contenedores
-- ⚙️ **Altamente Configurable** - Ajusta modelos, parámetros y comportamiento
+- ⚙️ **Configurable** - Ajusta modelos, parámetros y comportamiento
 
 ---
 
