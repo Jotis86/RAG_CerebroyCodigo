@@ -452,20 +452,6 @@ Las contribuciones son bienvenidas! Sigue estos pasos:
 - Actualiza la documentación si es necesario
 - Asegúrate de que todos los tests pasen
 
----
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-```
-MIT License
-
-Copyright (c) 2025 Juan Durán
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
-```
 
 ---
 
